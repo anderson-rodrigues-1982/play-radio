@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diversidade Pôa - Player</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(270deg, #7427a9, #f5a623, #7427a9);
+      background-size: 600% 600%;
+      animation: gradient 15s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+}
+
+p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.player {
+  margin-top: 30px;
+}
+
+button {
+  background: #f5a623;
+  color: #7427a9;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #f7b84d;
+  transform: scale(1.05);
+}
+
+audio {
+  display: none;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Diversidade Pôa</h1>
+  <p>A nossa web rádio!</p>
+  <div class="player">
+    <button id="playPauseBtn">Tocar</button>
+    <audio id="radioPlayer" src="https://stream.zeno.fm/ee4gv7ot3lutv" preload="none"></audio>
+  </div>  <script>
+    const player = document.getElementById("radioPlayer");
+    const button = document.getElementById("playPauseBtn");
+
+    button.addEventListener("click", () => {
+      if (player.paused) {
+        player.play();
+        button.textContent = "Pausar";
+      } else {
+        player.pause();
+        button.textContent = "Tocar";
+      }
+    });
+  </script></body>
+</html>
