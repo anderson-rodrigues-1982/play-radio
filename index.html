@@ -33,31 +33,33 @@
       font-weight: bold;
     }
 
-    h1 {
-      color: white;
-      margin-bottom: 15px;
-      font-size: 22px;
+    /* Estilizando os botões personalizados */
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
+    .button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 30px;
+      margin: 0 15px;
+      cursor: pointer;
+    }
+
+    /* Estilo do player customizado */
     audio {
       width: 100%;
-      background-color: #7427a9;
-      border: none;
+      background-color: transparent;
       border-radius: 8px;
+      border: none;
       padding: 10px 0;
     }
 
     audio::-webkit-media-controls-panel {
-      background-color: #7427a9;
-    }
-
-    audio::-webkit-media-controls-play-button,
-    audio::-webkit-media-controls-volume-slider {
-      filter: invert(100%);
-    }
-
-    audio::-webkit-media-controls-volume-slider {
-      background-color: white;
+      background-color: transparent;
     }
 
     /* Responsivo para dispositivos móveis */
@@ -65,18 +67,23 @@
       .message {
         font-size: 16px;
       }
-
-      h1 {
-        font-size: 20px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="player-container">
     <div class="message">Clique e ouça a maior diversidade de ritmos!</div>
-    <h1>Rádio Diversidade POA</h1>
-    <audio controls>
+
+    <!-- Botões personalizados -->
+    <div class="controls">
+      <button class="button" onclick="document.getElementById('audioPlayer').play()">&#9654;</button>
+      <button class="button" onclick="document.getElementById('audioPlayer').pause()">&#10074;&#10074;</button>
+      <button class="button" onclick="document.getElementById('audioPlayer').volume += 0.1;">&#128266;</button>
+      <button class="button" onclick="document.getElementById('audioPlayer').volume -= 0.1;">&#128263;</button>
+    </div>
+
+    <!-- Player de áudio -->
+    <audio id="audioPlayer" controls>
       <source src="https://stream.zeno.fm/ee4gv7ot3lutv" type="audio/mpeg">
       Seu navegador não suporta o player de áudio.
     </audio>
