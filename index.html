@@ -17,13 +17,10 @@
     }
 
     .player-container {
-      background-color: #7427a9;
       padding: 20px;
-      border-radius: 12px;
       text-align: center;
       width: 100%;
-      max-width: 500px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box;
     }
 
     .message {
@@ -33,39 +30,23 @@
       font-weight: bold;
     }
 
-    /* Estilizando os botões personalizados */
-    .controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .button {
-      background-color: transparent;
-      border: none;
-      color: white;
-      font-size: 30px;
-      margin: 0 15px;
-      cursor: pointer;
-    }
-
-    /* Estilo do player customizado */
+    /* Player de áudio nativo */
     audio {
-      width: 100%;
+      width: 100%; /* Ocupa toda a largura da tela */
+      max-width: 100%; /* Garante que o player não ultrapasse a largura da tela */
       background-color: transparent;
-      border-radius: 8px;
       border: none;
       padding: 10px 0;
-    }
-
-    audio::-webkit-media-controls-panel {
-      background-color: transparent;
     }
 
     /* Responsivo para dispositivos móveis */
     @media (max-width: 600px) {
       .message {
         font-size: 16px;
+      }
+
+      audio {
+        width: 100%; /* Mantém a largura total no celular */
       }
     }
   </style>
@@ -74,16 +55,8 @@
   <div class="player-container">
     <div class="message">Clique e ouça a maior diversidade de ritmos!</div>
 
-    <!-- Botões personalizados -->
-    <div class="controls">
-      <button class="button" onclick="document.getElementById('audioPlayer').play()">&#9654;</button>
-      <button class="button" onclick="document.getElementById('audioPlayer').pause()">&#10074;&#10074;</button>
-      <button class="button" onclick="document.getElementById('audioPlayer').volume += 0.1;">&#128266;</button>
-      <button class="button" onclick="document.getElementById('audioPlayer').volume -= 0.1;">&#128263;</button>
-    </div>
-
-    <!-- Player de áudio -->
-    <audio id="audioPlayer" controls>
+    <!-- Player de áudio nativo -->
+    <audio controls>
       <source src="https://stream.zeno.fm/ee4gv7ot3lutv" type="audio/mpeg">
       Seu navegador não suporta o player de áudio.
     </audio>
